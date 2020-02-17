@@ -46,10 +46,11 @@ import  java.sql.*;
             try (val conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/app",
                     "app", "pass")) {
                 long count = runner.query(conn, countSQL, new ScalarHandler<>());
-                // при создании нового пользователя, логин меняется, но пароль в зашифрованном виде используется тот,
-                // который принадлежит пользователю с логином vasya (см. DBeaver)
+
                 runner.update(conn, dataSQL, Long.toString(count + 1),
-                        login, "$2a$10$Pml3uwcimo7D/XZVwf2OaOWML5yYu5c.ziYKTwG36kAhzdmJRCYN2", status);
+                        login, "$2a$10$EcC8LSizV72Yx3I.tN2R7uEm0pHtREtKsB3870dzeidCa6sXc0vt6", status);
+                /*runner.update(conn, dataSQL, count,
+                        login, "$2a$10$EcC8LSizV72Yx3I.tN2R7uEm0pHtREtKsB3870dzeidCa6sXc0vt6", status);*/
             }
             return new AuthInfo(login, "qwerty123");
         }
