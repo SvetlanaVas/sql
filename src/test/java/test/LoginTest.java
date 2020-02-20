@@ -33,7 +33,7 @@ public class LoginTest {
         verificationPage.verificationPage();
         val verificationCode = DataHelper.getVerificationCode();
         val dashboardPage = verificationPage.validVerify(verificationCode.getCode());
-        dashboardPage.dashboardPage();
+        dashboardPage.verifyDashboardPageVisiblity();
     }
 
     @Test
@@ -58,6 +58,6 @@ public class LoginTest {
         verificationPage.verificationPage();
         val verificationCode = DataHelper.getVerificationCode();
         val dashboardPage = verificationPage.validVerify(verificationCode.getCode());
-        dashboardPage.dashboardPage();
+        dashboardPage.verifyDashboardPageVisiblity();
     }
 }

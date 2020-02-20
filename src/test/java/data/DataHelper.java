@@ -66,4 +66,14 @@ import  java.sql.*;
             }
             return new VerificationCode(verificationCode);
         }
+
+        public static void cleanDataBase() throws SQLException {
+            val cleanCards = "DELETE FROM cards WHERE created < NOW() - INTERVAL 7 MINUTE;";
+            val cleanAuthCodes = "DELETE FROM auth_codes WHERE created < NOW() - INTERVAL 7 MINUTE;";
+            val cleanUser = "DELETE FROM users WHERE created < NOW() - INTERVAL 7 MINUTE;";
+            val runner = new QueryRunner();
+            try (val conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/app", "app", "pass")) {
+
+            }
+        }
     }
