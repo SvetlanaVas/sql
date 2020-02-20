@@ -15,7 +15,7 @@ import  java.sql.*;
 
     public class DataHelper {
 
-        private DataHelper() {
+        public DataHelper() {
         }
 
         @Value

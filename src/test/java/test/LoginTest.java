@@ -18,8 +18,8 @@ public class LoginTest {
     @AfterEach
     @DisplayName("Should clean Data Base after login")
     void cleanBase() throws SQLException {
-        val dashboardPage = new DashboardPage();
-        dashboardPage.cleanDataBase();
+        val dataHelperPage = new DataHelper();
+        dataHelperPage.cleanDataBase();
     }
 
 
