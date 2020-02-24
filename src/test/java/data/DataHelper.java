@@ -73,7 +73,9 @@ import  java.sql.*;
             val cleanUser = "DELETE FROM users WHERE created < NOW() - INTERVAL 7 MINUTE;";
             val runner = new QueryRunner();
             try (val conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/app", "app", "pass")) {
-
+                val cleanCardsUser = runner.execute(conn, cleanCards, new BeanHandler<>(User.class));
+                val cleanAuthCodesUser = runner.execute(conn, cleanAuthCodes, new BeanHandler<>(User.class));
+                val cleanUserUser = runner.execute(conn, cleanUser, new BeanHandler<>(User.class));
             }
         }
     }
