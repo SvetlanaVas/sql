@@ -29,10 +29,10 @@ public class LoginTest {
         val loginPage = new LoginPage();
         loginPage.openLoginPage();
         val authInfo = DataHelper.getAuthInfo();
-        val verificationPage = loginPage.validLogin(authInfo);
-        verificationPage.verificationPage();
+        val verifPage = loginPage.validLogin(authInfo);
+        verifPage.verificationPage();
         val verificationCode = DataHelper.getVerificationCode();
-        val dashboardPage = verificationPage.validVerify(verificationCode.getCode());
+        val dashboardPage = verifPage.validVerify(verificationCode.getCode());
         dashboardPage.verifyDashboardPageVisiblity();
     }
 

@@ -68,9 +68,9 @@ import  java.sql.*;
         }
 
         public static void cleanDataBase() throws SQLException {
-            val cleanCards = "DELETE FROM cards WHERE created < NOW() - INTERVAL 7 MINUTE;";
-            val cleanAuthCodes = "DELETE FROM auth_codes WHERE created < NOW() - INTERVAL 7 MINUTE;";
-            val cleanUser = "DELETE FROM users WHERE created < NOW() - INTERVAL 7 MINUTE;";
+            val cleanCards = "DELETE FROM cards";
+            val cleanAuthCodes = "DELETE FROM auth_codes";
+            val cleanUser = "DELETE FROM users";
             val runner = new QueryRunner();
             try (val conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/app", "app", "pass")) {
                 val cleanCardsUser = runner.execute(conn, cleanCards, new BeanHandler<>(User.class));
