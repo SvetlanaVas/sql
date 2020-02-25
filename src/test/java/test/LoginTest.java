@@ -15,12 +15,7 @@ import java.sql.SQLException;
 public class LoginTest {
 
 
-    @AfterEach
-    @DisplayName("Should clean Data Base after login")
-    void cleanBase() throws SQLException {
-        val dataHelperPage = new DataHelper();
-        dataHelperPage.cleanDataBase();
-    }
+
 
 
     @Test
@@ -60,4 +55,11 @@ public class LoginTest {
         val dashboardPage = verificationPage.validVerify(verificationCode.getCode());
         dashboardPage.verifyDashboardPageVisiblity();
     }
+
+
+    void cleanBase() throws SQLException {
+        val dataHelperPage = new DataHelper();
+        dataHelperPage.cleanDataBase();
+    }
+
 }
