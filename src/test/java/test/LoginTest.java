@@ -56,8 +56,8 @@ public class LoginTest {
         dashboardPage.verifyDashboardPageVisiblity();
     }
 
-
-    void cleanBase() throws SQLException {
+    @AfterAll
+    static void cleanBase() throws SQLException {
         val dataHelperPage = new DataHelper();
         dataHelperPage.cleanDataBase();
     }
